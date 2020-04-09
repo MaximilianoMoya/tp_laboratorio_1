@@ -34,20 +34,24 @@ int main()
 
         rta = getInt("Ingrese opcion: ");
 
+        system("cls");
+
         switch(rta)
         {
 
         case 1:
             a = getFloat("Ingrese valor de A: ");
             flag1 = 1;
+             system("cls");
             break;
 
         case 2:
             b = getFloat("Ingrese valor de B: ");
             flag2 = 1;
+            system("cls");
             break;
         case 3:
-            printf("Calculando todas las operaciones. \n");
+            printf("Se han calculado las operaciones con exito. \n");
 
             suma = sumar(a,b);
             resta = restar(a,b);
@@ -55,6 +59,10 @@ int main()
             multiplicacion = multiplicar(a,b);
             factorialA = factorial(a);
             factorialB = factorial(b);
+
+            system("Pause");
+            system("cls");
+
 
             break;
         case 4:
@@ -75,7 +83,8 @@ int main()
             printf("El resultado de A*B es: %.2f\n",multiplicacion);
 
             printf("El factorial de A es de %.0f y \n el factorial de B es %.0f\n",factorialA,factorialB);
-
+            system("Pause");
+            system("cls");
             break;
         case 5:
 
