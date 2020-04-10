@@ -54,36 +54,42 @@ float multiplicar( float a, float b)
 
 }
 
- double factorial(float num)
+double factorial(float num)
 {
 
- double rta = 1;
+    double rta = 1;
 
     int numeroEntero;
 
     numeroEntero = num;
 
 
-    if(num - numeroEntero != 0 || num < 0){
+    if(num - numeroEntero != 0 || num < 0)
+    {
 
         rta = -1;
-    }else{
+    }
+    else
+    {
 
         for(int i = 0; i<num; i++)
         {
 
 
-            rta *=(double) num-i;
+            rta *=(double ) num-i;
 
         }
 
 
     }
-    if(num > 170){
+    if(num > 170)
+    {
 
 
         rta = -2;
     }
+
+
 
 
 

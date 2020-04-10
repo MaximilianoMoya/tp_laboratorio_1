@@ -187,7 +187,7 @@ void mostrarResultado(float suma, float resta, float division,float multiplicaci
                 else
                 {
 
-                    printf("El factorial de A es de %.0f y \n",factorialB);
+                    printf("El factorial de B es de %.0f  y \n",factorialB);
 
                 }
             }
