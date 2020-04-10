@@ -68,7 +68,7 @@ double factorial(float num)
 
     }
 
-    if(num - numeroEntero != 0 ){
+    if(num - numeroEntero != 0 || num < 0){
 
         rta = -1;
     }

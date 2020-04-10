@@ -86,7 +86,7 @@ int main()
             if(factorialA == -1)
             {
 
-                printf("El factorial de A es imposible de realizar debido a ser un numero decimal\n");
+                printf("El factorial de A es imposible de realizar debido a ser un numero decimal o ser un numero negativo\n");
 
 
             }
@@ -101,7 +101,7 @@ int main()
             if(factorialB == -1)
             {
 
-                printf("El factorial de B es imposible de realizar debido a ser un numero decimal\n");
+                printf("El factorial de B es imposible de realizar debido a ser un numero decimal o ser un numero negativo\n");
 
 
             }
