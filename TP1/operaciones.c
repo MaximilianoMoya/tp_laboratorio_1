@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 
 float sumar( float a, float b)
 {
@@ -51,27 +54,38 @@ float multiplicar( float a, float b)
 
 }
 
-double factorial(float num)
+ double factorial(float num)
 {
 
-    double rta = 1;
+ double rta = 1;
 
     int numeroEntero;
 
     numeroEntero = num;
 
-    for(int i = 0; i<num; i++)
-    {
-
-
-        rta *=(double) num-i;
-
-    }
 
     if(num - numeroEntero != 0 || num < 0){
 
         rta = -1;
+    }else{
+
+        for(int i = 0; i<num; i++)
+        {
+
+
+            rta *=(double) num-i;
+
+        }
+
+
     }
+    if(num > 170){
+
+
+        rta = -2;
+    }
+
+
 
     return rta;
 

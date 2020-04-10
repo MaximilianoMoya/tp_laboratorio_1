@@ -41,7 +41,7 @@ float multiplicar( float a, float b);
 /** \brief Calcula el factorial de un numero
  *
  * \param num float numero del cual se obtendra el factorial
- * \return double resultado o -1 si el numero es decimal o menor a 0
+ * \return double resultado, -1 si el numero es decimal menor a 0 o -2 si el numero es demasiado grande para el tamanio de la memoria
  *
  */
 double factorial(float num);

@@ -4,7 +4,7 @@
 	<stdlib.h>
 	<string.h>
 
-1586479833 source:c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp1\main.c
+1586483329 source:c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp1\main.c
 	<stdio.h>
 	<stdlib.h>
 	"utn.h"
@@ -12,7 +12,9 @@
 
 1586064602 c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp1\utn.h
 
-1586479224 c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp1\operaciones.h
+1586482738 c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp1\operaciones.h
 
-1586480210 source:c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp1\operaciones.c
+1586482635 source:c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp1\operaciones.c
+	<stdio.h>
+	<stdlib.h>
 
