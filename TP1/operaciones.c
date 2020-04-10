@@ -56,12 +56,21 @@ double factorial(float num)
 
     double rta = 1;
 
+    int numeroEntero;
+
+    numeroEntero = num;
+
     for(int i = 0; i<num; i++)
     {
 
 
         rta *=(double) num-i;
 
+    }
+
+    if(num - numeroEntero != 0 ){
+
+        rta = -1;
     }
 
     return rta;

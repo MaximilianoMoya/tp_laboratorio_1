@@ -42,7 +42,7 @@ int main()
         case 1:
             a = getFloat("Ingrese valor de A: ");
             flag1 = 1;
-             system("cls");
+            system("cls");
             break;
 
         case 2:
@@ -82,7 +82,39 @@ int main()
 
             printf("El resultado de A*B es: %.2f\n",multiplicacion);
 
-            printf("El factorial de A es de %.0f y \n el factorial de B es %.0f\n",factorialA,factorialB);
+
+            if(factorialA == -1)
+            {
+
+                printf("El factorial de A es imposible de realizar debido a ser un numero decimal\n");
+
+
+            }
+            else
+            {
+
+                printf("El factorial de A es de %.0f y \n",factorialA);
+
+            }
+
+
+            if(factorialB == -1)
+            {
+
+                printf("El factorial de B es imposible de realizar debido a ser un numero decimal\n");
+
+
+            }
+            else
+            {
+
+                printf("El factorial de A es de %.0f y \n",factorialB);
+
+            }
+
+
+
+
             system("Pause");
             system("cls");
             break;
