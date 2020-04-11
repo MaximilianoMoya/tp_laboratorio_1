@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "utn.h"
+#include "input.h"
 #include "operaciones.h"
 
 void menu(int flag1, int flag2, float a, float b);
@@ -52,22 +52,38 @@ int main()
             system("cls");
             break;
         case 3:
-            printf("Se han calculado las operaciones con exito. \n");
 
-            suma = sumar(a,b);
-            resta = restar(a,b);
-            division = dividir(a,b);
-            multiplicacion = multiplicar(a,b);
-            factorialA = factorial(a);
-            factorialB = factorial(b);
+            if(flag1 != 1 && flag2 != 1)
+            {
 
-            system("Pause");
-            system("cls");
+                printf("\nDebe ingresar los datos antes de operar\n");
 
+                system("Pause");
+                system("cls");
+
+
+            }
+            else
+            {
+
+
+
+                printf("Se han calculado las operaciones con exito. \n");
+
+                suma = sumar(a,b);
+                resta = restar(a,b);
+                division = dividir(a,b);
+                multiplicacion = multiplicar(a,b);
+                factorialA = factorial(a);
+                factorialB = factorial(b);
+
+                system("Pause");
+                system("cls");
+            }
 
             break;
         case 4:
-                mostrarResultado(suma,resta,division,multiplicacion,factorialA,factorialB);
+            mostrarResultado(suma,resta,division,multiplicacion,factorialA,factorialB);
             break;
         case 5:
 
@@ -126,77 +142,78 @@ void menu(int flag1, int flag2, float a, float b)
     printf("5. Salir\n");
 
 }
-void mostrarResultado(float suma, float resta, float division,float multiplicacion,double factorialA, double factorialB){
+void mostrarResultado(float suma, float resta, float division,float multiplicacion,double factorialA, double factorialB)
+{
 
 
-            printf("El resultado de A+B es: %.2f\n",suma);
-            printf("El resultado de A-B es: %.2f\n",resta);
+    printf("El resultado de A+B es: %.2f\n",suma);
+    printf("El resultado de A-B es: %.2f\n",resta);
 
-            if(division == 0)
-            {
-                printf("No es disponible dividir por cero\n");
+    if(division == 0)
+    {
+        printf("No es disponible dividir por cero\n");
 
-            }
-            else
-            {
-                printf("El resultado de A/B es: %.2f\n",division);
-            }
-
-
-            printf("El resultado de A*B es: %.2f\n",multiplicacion);
+    }
+    else
+    {
+        printf("El resultado de A/B es: %.2f\n",division);
+    }
 
 
-            if(factorialA == -2)
-            {
-                printf("El factorial de A es demasiado grande para mostrar debido al poco tamanio de memoria\n ");
-            }
-            else
-            {
-
-                if(factorialA == -1)
-                {
-
-                    printf("El factorial de A es imposible de realizar debido a ser un numero decimal o ser un numero negativo\n");
+    printf("El resultado de A*B es: %.2f\n",multiplicacion);
 
 
-                }
-                else
-                {
+    if(factorialA == -2)
+    {
+        printf("El factorial de A es demasiado grande para mostrar debido al poco tamanio de memoria\n ");
+    }
+    else
+    {
 
-                    printf("El factorial de A es de %.0f y \n",factorialA);
+        if(factorialA == -1)
+        {
 
-                }
-            }
-
-
-
-            if(factorialB == -2)
-            {
-                printf("El factorial de B es demasiado grande para mostrar debido al poco tamanio de memoria \n");
-            }
-            else
-            {
-
-                if(factorialB == -1)
-                {
-
-                    printf("El factorial de B es imposible de realizar debido a ser un numero decimal o ser un numero negativo\n");
+            printf("El factorial de A es imposible de realizar debido a ser un numero decimal o ser un numero negativo\n");
 
 
-                }
-                else
-                {
+        }
+        else
+        {
 
-                    printf("El factorial de B es de %.0f  y \n",factorialB);
+            printf("El factorial de A es de %.0f y \n",factorialA);
 
-                }
-            }
+        }
+    }
 
 
 
+    if(factorialB == -2)
+    {
+        printf("El factorial de B es demasiado grande para mostrar debido al poco tamanio de memoria \n");
+    }
+    else
+    {
 
-            system("Pause");
-            system("cls");
+        if(factorialB == -1)
+        {
+
+            printf("El factorial de B es imposible de realizar debido a ser un numero decimal o ser un numero negativo\n");
+
+
+        }
+        else
+        {
+
+            printf("El factorial de B es de %.0f  y \n",factorialB);
+
+        }
+    }
+
+
+
+
+    system("Pause");
+    system("cls");
 
 
 

@@ -50,3 +50,11 @@ char getChar(char mensaje[]);
  *
  */
 void getString(char* cadena[], char mensaje[]);
+
+
+/**
+*\brief Verifica si un string es un numero o no
+*\param char[] string a verificar
+*\return devuelve 1 como true y 0 como false
+*/
+int isNumber(char numero[]);
