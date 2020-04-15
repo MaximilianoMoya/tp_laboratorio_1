@@ -83,7 +83,25 @@ int main()
 
             break;
         case 4:
+                  if(flag1 != 1 && flag2 != 1)
+            {
+
+                printf("\nDebe ingresar los datos antes de poder mostrar los resultados\n");
+
+                system("Pause");
+                system("cls");
+
+
+            }else{
+
+
             mostrarResultado(suma,resta,division,multiplicacion,factorialA,factorialB);
+
+            }
+
+
+
+
             break;
         case 5:
 
