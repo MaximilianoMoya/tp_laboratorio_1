@@ -4,11 +4,12 @@
 	<stdlib.h>
 	<string.h>
 
-1586915999 source:c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp1\main.c
+1586917324 source:c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp1\main.c
 	<stdio.h>
 	<stdlib.h>
 	"input.h"
 	"operaciones.h"
+	"mostrar.h"
 
 1586064602 c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp1\utn.h
 
@@ -24,4 +25,10 @@
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+
+1586917252 c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp1\mostrar.h
+
+1586917373 source:c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp1\mostrar.c
+	<stdio.h>
+	<stdlib.h>
 
