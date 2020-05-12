@@ -8,7 +8,7 @@ void menuPrincipal()
 {
 
 
-    printf("1-Altas\n2-Modificar\n3-Baja\n4-Informar");
+    printf("\n1-Altas\n2-Modificar\n3-Baja\n4-Informar");
 
 
 
@@ -19,11 +19,13 @@ void menuPrincipal()
 void menuModificar()
 {
 
-    printf("\n1-Cambiar nombre\n2-Cambiar apellido\n3-Cambiar salario\n 4-Cambiar sector\n");
+    printf("\n1-Cambiar nombre\n2-Cambiar apellido\n3-Cambiar salario\n 4-Cambiar sector\n0-salir\n");
 }
 
 void baja(Employee list[], int len)
 {
+
+    int verificar = -1;
     if(carga == 1)
     {
 
@@ -41,6 +43,24 @@ void baja(Employee list[], int len)
 
 
     }
+
+    for(int i = 0; i<len ;i++){
+
+        if(list[i].isEmply == OCUPADO){
+
+            verificar = 0;
+        }
+
+
+    }
+
+
+    if(verificar == -1){
+
+    carga = 0;
+
+    }
+
 }
 
 
@@ -208,7 +228,7 @@ void modificar(Employee list[], int len)
 
 void Alta(Employee list[], int len)
 {
-    carga = 1;
+    //carga = 1;
 
     int id;
     char nombre[51];
@@ -217,7 +237,7 @@ void Alta(Employee list[], int len)
     int sector;
 
 
-    id= cont++;
+    id= cont;
 
     getOnlyLetters(nombre,"\nIngrese nombre: ","\n**Nombre invalido**");
     getOnlyLetters(apellido,"\nIngrese apellido: ","\n**Apellido invalido**");
@@ -290,6 +310,8 @@ int addEmployee(Employee* list, int len, int id,char name[],char lastName[],floa
         {
             list[index] = aux;
             printf("\nSe agrego con exito");
+            carga = 1;
+            cont++;
 
         }
         else
