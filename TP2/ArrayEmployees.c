@@ -31,22 +31,26 @@ void baja(Employee list[], int len)
 
 
 
-    int id;
-    id = getInt("\nIngrese ID: ");
+        int id;
+        id = getInt("\nIngrese ID: ");
 
-    removeEmployee(list,len,id);
+        removeEmployee(list,len,id);
 
 
-    }else{
+    }
+    else
+    {
 
-            printf("\nSe debe tener empleados cargados para poder usar esta opcion\n");
+        printf("\nSe debe tener empleados cargados para poder usar esta opcion\n");
 
 
     }
 
-    for(int i = 0; i<len ;i++){
+    for(int i = 0; i<len ; i++)
+    {
 
-        if(list[i].isEmply == OCUPADO){
+        if(list[i].isEmply == OCUPADO)
+        {
 
             verificar = 0;
         }
@@ -55,9 +59,10 @@ void baja(Employee list[], int len)
     }
 
 
-    if(verificar == -1){
+    if(verificar == -1)
+    {
 
-    carga = 0;
+        carga = 0;
 
     }
 
@@ -396,35 +401,21 @@ int removeEmployee(Employee* list, int len, int id)
 
 
 
-        index = findEmployeeById(list,len,id);
+    index = findEmployeeById(list,len,id);
 
 
-        if(index != -1)
+    if(index != -1)
+    {
+
+        printf("\n  ID encontrado \n ");
+        showEmployee(list[index]);
+        rta = verificarSN("\nDesea dar de baja s/n: ");
+
+        if(rta == 's')
         {
 
-            printf("\n  ID encontrado \n ");
-            showEmployee(list[index]);
-            rta = verificarSN("\nDesea dar de baja s/n: ");
 
-            if(rta == 's')
-            {
-
-
-                list[index].isEmply = LIBRE;
-
-
-            }
-            else
-            {
-
-                printf("\n LA BAJA A SIDO ABORTADA.");
-
-            }
-
-
-
-
-
+            list[index].isEmply = LIBRE;
 
 
         }
@@ -434,6 +425,20 @@ int removeEmployee(Employee* list, int len, int id)
             printf("\n LA BAJA A SIDO ABORTADA.");
 
         }
+
+
+
+
+
+
+
+    }
+    else
+    {
+
+        printf("\n LA BAJA A SIDO ABORTADA.");
+
+    }
 
 
     return index;
@@ -454,87 +459,6 @@ int showEmployee(Employee employee)
     return employee.id;
 }
 
-int sortEmployees(Employee* list, int len, int order)
-{
-
-
-    Employee aux;
-
-
-
-    for(int i = 0; i<len-1; i++)
-    {
-        //  if(estados[i] != valorInicial);
-        // continue;
-        for(int j = i+1; j<len; j++)
-        {
-
-            if(order == 1)
-            {
-
-                if(stricmp(list[j].lastName,list[i].lastName)<1 || (stricmp(list[j].lastName,list[i].lastName)== 0 && list[j].sector < list[i].sector))
-                {
-
-
-                    aux=list[i];
-
-                    list[i] =list[j];
-
-                    list[j] =aux;
-
-                    //tambien ordenar si o si estados
-
-                }
-
-
-            }
-
-            if(order ==0)
-            {
-                if(stricmp(list[j].lastName,list[i].lastName)>1 || (stricmp(list[j].lastName,list[i].lastName) == 0 && list[j].sector < list[i].sector))
-                {
-
-
-                    aux = list[i];
-
-                    list[i]=list[j];
-
-                    list[j]=aux;
-
-
-
-                }
-
-
-
-            }
-
-        }
-
-    }
-
-    printf("%16s%16s%16s%16s%16s\n","Id","lastname","name","salary","sector");
-
-    for(int i = 0; i<len; i++)
-    {
-
-        if(list[i].isEmply != 0)
-        {
-
-            showEmployee(list[i]);
-
-
-        }
-
-
-
-
-    }
-
-
-    return order;
-
-}
 
 
 
@@ -622,11 +546,11 @@ void informar(Employee list[], int len)
 
 
             case 1:
-                sortEmployees(list,len,0);
+                sortEmployees(list,len,1);
                 break;
 
             case 2:
-                sortEmployees(list,len,1);
+                sortEmployees(list,len,0);
                 break;
 
             case 3:
@@ -725,4 +649,67 @@ void informarTotalPromedioCantidad(Employee* list, int len)
 
 
 }
+/////////////////////////////////////////////////
+
+int sortEmployees(Employee* list, int len, int order)
+{
+
+
+    Employee aux;
+    int verifica;
+
+    for(int i = 0; i<len-1; i++)
+    {
+        for(int j = i+1; j<len; j++)
+        {
+            if(order == 1)
+            {
+                if(stricmp(list[j].lastName,list[i].lastName)<0 || (stricmp(list[j].lastName,list[i].lastName)== 0 && list[j].sector > list[i].sector))
+                {
+                    aux=list[i];
+                    list[i] =list[j];
+                    list[j] =aux;
+                }
+            }
+            if(order ==0)
+            {
+                if(stricmp(list[j].lastName,list[i].lastName)>0 || (stricmp(list[j].lastName,list[i].lastName) == 0 && list[j].sector < list[i].sector))
+                {
+                    aux = list[i];
+                    list[i]=list[j];
+                    list[j]=aux;
+                }
+            }
+        }
+    }
+
+    for(int j = 0; j<len; j++)
+    {
+        for(int i = 0; i<len; i++)
+        {
+            if(list[i].isEmply != 0)
+            {
+                if(list[i].sector == j)
+                {
+                    verifica = 1;
+                }
+            }
+            if(verifica == 1)
+            {
+                showEmployee(list[i]);
+                verifica = 0;
+            }
+        }
+    }
+
+    return order;
+
+
+}
+
+
+
+
+
+
 

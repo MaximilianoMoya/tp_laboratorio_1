@@ -150,3 +150,9 @@ int printEmployees(Employee* list, int len);
  *
  */
 void informar(Employee list[], int len);
+
+
+
+/////////////////////////////
+
+
