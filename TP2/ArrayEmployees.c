@@ -85,13 +85,23 @@ void modificar(Employee list[], int len)
         int auxInt;
 
 
+        for(int i = 0; i<len;i++)
+        {
+           if(list[i].isEmply == OCUPADO)
+           {
+
+               showEmployee(list[i]);
+           }
+
+        }
+
         id = getInt("\nIngrese ID: ");
 
         char rta;
 
         index = findEmployeeById(list,len,id);
 
-
+        showEmployee(list[index]);
 
 
 
@@ -119,13 +129,13 @@ void modificar(Employee list[], int len)
 
 
                     strcpy(list[index].name,auxString);
-                    printf("\n Se ha cambiado el valor exitosamente.");
+                    printf("\n Se ha cambiado el valor exitosamente.\n");
 
                 }
                 else
                 {
 
-                    printf("\nCAMBIO ABORTADO.");
+                    printf("\nCAMBIO ABORTADO.\n");
                 }
 
 
@@ -314,7 +324,7 @@ int addEmployee(Employee* list, int len, int id,char name[],char lastName[],floa
         if(rta == 's')
         {
             list[index] = aux;
-            printf("\nSe agrego con exito");
+            printf("\nSe agrego con exito\n");
             carga = 1;
             cont++;
 
@@ -322,7 +332,7 @@ int addEmployee(Employee* list, int len, int id,char name[],char lastName[],floa
         else
         {
 
-            printf("\nEl alta a sido cancelada...");
+            printf("\nEl alta a sido cancelada...\n");
         }
     }
     else
@@ -521,6 +531,7 @@ void Hardcodeo(Employee list[], int tam)
     }
 
 
+    carga = 1;
 }
 
 void informar(Employee list[], int len)
@@ -532,7 +543,7 @@ void informar(Employee list[], int len)
 
 
 
-        printf("\n1-Ver lista de empleados por apellido en orden alfabetico ascendente\n2-Ver lista de empleados por apellido en orden alfabetico descendente\n3-Total y promedio de los salarios, y cuántos empleados superan el salario promedio");
+        printf("\n1-Ver lista de empleados por sector y por apellido en orden alfabetico ascendente\n2-Ver lista de empleados por sector y por apellido en orden alfabetico descendente\n3-Total y promedio de los salarios, y cuantos empleados superan el salario promedio\n0-Salir de menu de informaciones");
         int opc;
 
 
@@ -557,7 +568,7 @@ void informar(Employee list[], int len)
                 informarTotalPromedioCantidad(list,len);
                 break;
             case 0:
-                printf("\nSaliendo de menu de informaciones.");
+                printf("\nSaliendo de menu de informaciones.\n");
                 break;
 
             default:
@@ -639,7 +650,7 @@ void informarTotalPromedioCantidad(Employee* list, int len)
 
     }
 
-    printf("\n El total es de %.2f y promedio de los salarios es de %.2f y la cantidad empleados superan el salario promedio es de %d",total,promedio,cantidadEmpleadosQueSuperanPromedio);
+    printf("\n El total es de %.2f y promedio de los salarios es de %.2f y la cantidad empleados superan el salario promedio es de %d\n",total,promedio,cantidadEmpleadosQueSuperanPromedio);
 
 
 

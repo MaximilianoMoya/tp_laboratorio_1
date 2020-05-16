@@ -9,7 +9,7 @@ int main()
 
     Employee listaDeEmpleados[T];
     initEmployees(listaDeEmpleados,T);
- //   Hardcodeo(listaDeEmpleados,T);
+    Hardcodeo(listaDeEmpleados,T);
 
 
 
