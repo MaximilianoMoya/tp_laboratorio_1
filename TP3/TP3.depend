@@ -1,0 +1,61 @@
+# depslib dependency file v1.0
+1591529796 source:c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp3\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+
+1565993298 c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp3\linkedlist.h
+
+1591523483 c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp3\employee.h
+	<string.h>
+	<stdlib.h>
+	"validate.h"
+	"input.h"
+
+1591526716 source:c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp3\employee.c
+	"Employee.h"
+
+1591529838 source:c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp3\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"input.h"
+
+1591528278 c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp3\controller.h
+
+1591523671 source:c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp3\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+
+1591522531 source:c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp3\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"validate.h"
+
+1590920372 c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp3\validate.h
+
+1591522647 source:c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp3\validate.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"input.h"
+
+1591522510 c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp3\input.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"validate.h"
+
+1591523647 c:\users\user\desktop\utn\laboratorioprogramacion 1b\tp_laboratorio_1\tp3\parser.h
+
