@@ -73,13 +73,13 @@ int parser_EmployeeFromBinary(FILE* pFile, LinkedList* pArrayListEmployee)
 
 
 
-            pEmployee = employee_new();
 
     if(pFile != NULL)
     {
-        while(!feof(pFile))
+        while(!feof(pFile) )
         {
 
+            pEmployee = employee_new();
             fread(pEmployee,sizeof(Employee),1,pFile);
             ll_add(pArrayListEmployee,pEmployee);
         }

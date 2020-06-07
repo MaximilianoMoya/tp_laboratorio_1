@@ -378,11 +378,13 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
+
+    int rta = -1;
     Employee* aux = NULL;
 
     if(pArrayListEmployee != NULL)
     {
-
+        rta = 1;
         for(int i=0; i<ll_len(pArrayListEmployee); i++)
         {
             aux = ll_get(pArrayListEmployee,i);
@@ -396,7 +398,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 
     }
 
-    return 1;
+    return rta;
 }
 
 /** \brief Ordenar empleados
@@ -474,17 +476,27 @@ int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
     pArchivo = fopen(path, "w");
     fprintf(pArchivo,"id,nombre,horasTrabajadas,sueldo\n");
 
-    for(i=0; i< ll_len(pArrayListEmployee); i++)
+    if(pArchivo != NULL)
     {
-        aux = ll_get(pArrayListEmployee,i);
-        fprintf(pArchivo,"%d,%s,%d,%d\n",employee_getId(aux)
-                ,employee_getNombre(aux)
-                ,employee_getHorasTrabajadas(aux)
-                ,employee_getSueldo(aux));
+
+
+
+
+        for(i=0; i< ll_len(pArrayListEmployee); i++)
+        {
+            aux = ll_get(pArrayListEmployee,i);
+            fprintf(pArchivo,"%d,%s,%d,%d\n",employee_getId(aux)
+                    ,employee_getNombre(aux)
+                    ,employee_getHorasTrabajadas(aux)
+                    ,employee_getSueldo(aux));
+        }
+
+        rta = 1;
+        printf("\n\nSe han guardado los cambios");
+        fclose(pArchivo);
     }
 
 
-    fclose(pArchivo);
 
     return rta;
 
@@ -503,6 +515,29 @@ int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
  */
 int controller_saveAsBinary(char* path, LinkedList* pArrayListEmployee)
 {
-    return 1;
+
+  FILE* pArchivo;
+    Employee* aux;
+
+    int rta = -1;
+    int i = 0;
+
+    if( path != NULL && pArrayListEmployee != NULL )
+    {
+        pArchivo = fopen(path,"wb");
+
+        for(i=0; i< ll_len(pArrayListEmployee); i++)
+        {
+            aux = (Employee*)ll_get(pArrayListEmployee,i);
+            fwrite(aux, sizeof(Employee),1,pArchivo);
+        }
+        fclose(pArchivo);
+    }
+    return rta;
+
+
+
+
+
 }
 

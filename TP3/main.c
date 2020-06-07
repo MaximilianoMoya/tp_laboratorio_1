@@ -44,7 +44,7 @@ int main()
             break;
 
         case 2:
-            printf("\n********En produccion*******\n");
+            controller_loadFromBinary("data.bin",listaEmpleados);
             break;
         case 3:
             controller_addEmployee(listaEmpleados);
@@ -73,7 +73,7 @@ int main()
             break;
 
         case 9:
-            printf("\n********En produccion*******\n");
+            controller_saveAsBinary("data.bin",listaEmpleados);
             break;
 
         case 10:
