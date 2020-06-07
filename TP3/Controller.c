@@ -103,26 +103,28 @@ int controller_loadFromBinary(char* path, LinkedList* pArrayListEmployee)
     int rta = -1;
 
     FILE* pFile;
-    pFile = fopen(path,"rb");
+    pFile = fopen(path, "rb");
 
-    if(pFile == NULL)
+    if(pFile != NULL)
     {
-        rta = 0;
+
+        parser_EmployeeFromBinary(pFile,pArrayListEmployee);
+        rta = 1;
+
+        fclose(pFile);
     }
     else
     {
 
-        parser_EmployeeFromBinary(pFile,pArrayListEmployee);
+        rta = 0;
 
-        fclose(pFile);
-        rta = 1;
 
     }
 
 
 
 
-    return rta;;
+    return rta;
 }
 
 /** \brief Alta de empleados
@@ -141,7 +143,7 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
 
     char respuesta;
     int rta;
-    int k = 1;
+
 
     char auxId[130];
     int auxIdInt;
@@ -163,23 +165,23 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
         // itoa(ll_len(pArrayListEmployee) + 1,auxId);
 
 
-      itoa(ll_len(pArrayListEmployee) + k,auxId,10);
+        itoa(ll_len(pArrayListEmployee) + 1,auxId,10);
 
 
-      auxIdInt = atoi(auxId);
+        auxIdInt = atoi(auxId);
 
-      for(int i = 0; i<ll_len(pArrayListEmployee);i++)
-      {
-        aux = ll_get(pArrayListEmployee,i);
-
-        if(employee_getId(aux) == auxIdInt)
+        for(int i = 0; i<ll_len(pArrayListEmployee); i++)
         {
+            aux = ll_get(pArrayListEmployee,i);
 
-         auxIdInt++;
+            if(employee_getId(aux) == auxIdInt)
+            {
+
+                auxIdInt++;
 
 
+            }
         }
-      }
         aux=NULL;
 
         itoa(auxIdInt,auxId,10);
@@ -459,7 +461,37 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
 {
-    return 1;
+
+    FILE* pArchivo;
+    Employee* aux;
+
+    int rta = -1;
+    int i;
+
+
+
+
+    pArchivo = fopen(path, "w");
+    fprintf(pArchivo,"id,nombre,horasTrabajadas,sueldo\n");
+
+    for(i=0; i< ll_len(pArrayListEmployee); i++)
+    {
+        aux = ll_get(pArrayListEmployee,i);
+        fprintf(pArchivo,"%d,%s,%d,%d\n",employee_getId(aux)
+                ,employee_getNombre(aux)
+                ,employee_getHorasTrabajadas(aux)
+                ,employee_getSueldo(aux));
+    }
+
+
+    fclose(pArchivo);
+
+    return rta;
+
+
+
+
+
 }
 
 /** \brief Guarda los datos de los empleados en el archivo data.csv (modo binario).

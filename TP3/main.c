@@ -13,7 +13,7 @@
      4. Modificar datos de empleado X
      6. Listar empleados X
      7. Ordenar empleados X
-     8. Guardar los datos de los empleados en el archivo data.csv (modo texto). //En produccion
+     8. Guardar los datos de los empleados en el archivo data.csv (modo texto).X
      9. Guardar los datos de los empleados en el archivo data.csv (modo binario). //En produccion
     10. Salir
 *****************************************************/
@@ -23,6 +23,10 @@
 int main()
 {
     int option;
+
+    int aux;
+
+
 
 
     LinkedList* listaEmpleados = ll_newLinkedList();
@@ -38,9 +42,9 @@ int main()
         case 1:
             controller_loadFromText("data.csv",listaEmpleados);
             break;
-        /////////////controller_loadFromBinary
+
         case 2:
-            controller_loadFromBinary("data.csv",listaEmpleados);
+            controller_loadFromBinary("data.bin",listaEmpleados);
             break;
         case 3:
             controller_addEmployee(listaEmpleados);
@@ -59,15 +63,22 @@ int main()
             controller_ListEmployee(listaEmpleados);
             break;
 
-        //controller_removeEmployee controller_sortEmployee
+
         case 7:
             controller_sortEmployee(listaEmpleados);
             break;
 
-              case 10:
+        case 8:
+            controller_saveAsText("data.csv",listaEmpleados);
+            break;
+
+        case 10:
             printf("\nGracias por utilizar la app");
             break;
-            /////////////
+
+        default:
+            printf("\nOpcion invalida");
+
         }
     }
     while(option != 10);
