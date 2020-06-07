@@ -24,7 +24,7 @@ int main()
 {
     int option;
 
-    int aux;
+
 
 
 
@@ -44,7 +44,7 @@ int main()
             break;
 
         case 2:
-            controller_loadFromBinary("data.bin",listaEmpleados);
+            printf("\n********En produccion*******\n");
             break;
         case 3:
             controller_addEmployee(listaEmpleados);
@@ -70,6 +70,10 @@ int main()
 
         case 8:
             controller_saveAsText("data.csv",listaEmpleados);
+            break;
+
+        case 9:
+            printf("\n********En produccion*******\n");
             break;
 
         case 10:
