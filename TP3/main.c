@@ -57,8 +57,10 @@ int main()
             controller_ListEmployee(listaEmpleados);
             break;
 
-            //controller_removeEmployee
-
+        //controller_removeEmployee controller_sortEmployee
+        case 7:
+            controller_sortEmployee(listaEmpleados);
+            break;
             /////////////
         }
     }

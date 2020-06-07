@@ -158,3 +158,79 @@ float employee_getSueldo(Employee* this){
 
 
 }
+
+
+
+
+////////////Ordenamientos
+
+
+int Employee_sortNombre(void* anterior, void* posterior)
+{
+    int  rta = 0;
+
+    char nombreAnterior[100];
+    char nombrePosterior[100];
+
+        strcpy(nombreAnterior, employee_getNombre(anterior));
+        strcpy(nombrePosterior, employee_getNombre(posterior));
+
+    if(strcmpi(nombreAnterior,nombrePosterior)>0)
+    {
+
+        rta = 1;
+    }
+
+    return rta;
+
+
+}
+
+
+int Employee_sortHoras(void* anterior, void* posterior)
+{
+    int  rta = 0;
+
+    int horasAnterior;
+    int horasPosterior;
+
+
+        horasAnterior = employee_getHorasTrabajadas(anterior);
+        horasPosterior = employee_getHorasTrabajadas(posterior);
+
+
+    if(horasAnterior> horasPosterior)
+    {
+
+        rta = 1;
+    }
+
+    return rta;
+
+
+}
+
+
+
+int Employee_sortSueldo(void* anterior, void* posterior)
+{
+    int  rta = 0;
+
+    int sueldoAnterior;
+    int sueldoPosterior;
+
+
+        sueldoAnterior = employee_getSueldo(anterior);
+        sueldoPosterior = employee_getSueldo(posterior);
+
+
+    if(sueldoAnterior> sueldoPosterior)
+    {
+
+        rta = 1;
+    }
+
+    return rta;
+
+
+}

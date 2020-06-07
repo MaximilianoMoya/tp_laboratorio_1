@@ -221,7 +221,7 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
 
         break;
     case 2:
-       auxInt= getNumberWithDefinedRange("\nIngrese nueva cantidad de horas: ",500,1,"La cantidad de horas es invalida");
+        auxInt= getNumberWithDefinedRange("\nIngrese nueva cantidad de horas: ",500,1,"La cantidad de horas es invalida");
         employee_setHorasTrabajadas(aux,auxInt);
         break;
     case 3:
@@ -229,7 +229,8 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
         employee_setSueldo(aux,auxInt);
         break;
 
-        default: printf("\nOpcion invalida");
+    default:
+        printf("\nOpcion invalida");
 
 
 
@@ -240,11 +241,13 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
     {
 
         ll_set(pArrayListEmployee,index,aux);
-         printf("\nSe modifico el dato con exito\n");
-    }else{
+        printf("\nSe modifico el dato con exito\n");
+    }
+    else
+    {
 
 
-    printf("\nSe aborto la modificacion de datos\n");
+        printf("\nSe aborto la modificacion de datos\n");
     }
 
 
@@ -347,7 +350,48 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_sortEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int opc;
+
+    int rta =-1;
+
+    if(pArrayListEmployee != NULL)
+    {
+
+        printf("\n1-Ordenar por nombre\n2-Ordenar por horas trabajadas\n3-Ordenar por Sueldo");
+        opc = getInt("\nIngrese Opcion: ","Opcion invalida");
+
+
+        switch(opc)
+        {
+
+        case 1:
+            printf("\nOrdenando por nombre... Aguarde un momento por favor.\n");
+            ll_sort(pArrayListEmployee,Employee_sortNombre,1);
+            rta = 1;
+            break;
+        case 2:
+            printf("\nOrdenando por horas... Aguarde un momento por favor.\n");
+            ll_sort(pArrayListEmployee,Employee_sortHoras,1);
+            rta = 1;
+            break;
+        case 3:
+            printf("\nOrdenando por sueldo... Aguarde un momento por favor.\n");
+            ll_sort(pArrayListEmployee,Employee_sortSueldo,1);
+
+            rta = 1;
+            break;
+
+        default:
+            printf("\nOpcion invalida");
+        }
+    }
+
+    printf("\nSe ha ordenado la lista satisfactoriamente.\n");
+
+
+
+
+    return rta;
 }
 
 /** \brief Guarda los datos de los empleados en el archivo data.csv (modo texto).
