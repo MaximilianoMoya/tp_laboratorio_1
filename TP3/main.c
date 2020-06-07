@@ -12,7 +12,7 @@
      3. Alta de empleado X
      4. Modificar datos de empleado X
      6. Listar empleados X
-     7. Ordenar empleados //En produccion
+     7. Ordenar empleados X
      8. Guardar los datos de los empleados en el archivo data.csv (modo texto). //En produccion
      9. Guardar los datos de los empleados en el archivo data.csv (modo binario). //En produccion
     10. Salir
@@ -38,8 +38,10 @@ int main()
         case 1:
             controller_loadFromText("data.csv",listaEmpleados);
             break;
-        /////////////
-
+        /////////////controller_loadFromBinary
+        case 2:
+            controller_loadFromBinary("data.csv",listaEmpleados);
+            break;
         case 3:
             controller_addEmployee(listaEmpleados);
             break;
@@ -60,6 +62,10 @@ int main()
         //controller_removeEmployee controller_sortEmployee
         case 7:
             controller_sortEmployee(listaEmpleados);
+            break;
+
+              case 10:
+            printf("\nGracias por utilizar la app");
             break;
             /////////////
         }

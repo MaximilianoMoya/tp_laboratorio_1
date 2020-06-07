@@ -42,7 +42,7 @@ int controller_seachToId(LinkedList* pArrayListEmployee)
         }
     }
     printf("\nEl empleado seleccionado es: ");
-    printf("\n%16d%16s%16d%16.2f",employee_getId(aux)
+    printf("\n%16d%16s%16d%16d",employee_getId(aux)
            ,employee_getNombre(aux)
            ,employee_getHorasTrabajadas(aux)
            ,employee_getSueldo(aux));
@@ -63,22 +63,29 @@ int controller_seachToId(LinkedList* pArrayListEmployee)
  */
 int controller_loadFromText(char* path, LinkedList* pArrayListEmployee)
 {
+    int rta = -1;
 
     FILE* pFile;
     pFile = fopen(path,"r");
 
     if(pFile == NULL)
     {
-        return 0;
+        rta = 0;
+    }
+    else
+    {
+
+        parser_EmployeeFromText(pFile,pArrayListEmployee);
+
+        fclose(pFile);
+        rta = 1;
+
     }
 
-    parser_EmployeeFromText(pFile,pArrayListEmployee);
-
-    fclose(pFile);
 
 
 
-    return 1;
+    return rta;
 }
 
 /** \brief Carga los datos de los empleados desde el archivo data.csv (modo binario).
@@ -90,7 +97,32 @@ int controller_loadFromText(char* path, LinkedList* pArrayListEmployee)
  */
 int controller_loadFromBinary(char* path, LinkedList* pArrayListEmployee)
 {
-    return 1;
+
+
+
+    int rta = -1;
+
+    FILE* pFile;
+    pFile = fopen(path,"rb");
+
+    if(pFile == NULL)
+    {
+        rta = 0;
+    }
+    else
+    {
+
+        parser_EmployeeFromBinary(pFile,pArrayListEmployee);
+
+        fclose(pFile);
+        rta = 1;
+
+    }
+
+
+
+
+    return rta;;
 }
 
 /** \brief Alta de empleados
@@ -109,8 +141,10 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
 
     char respuesta;
     int rta;
+    int k = 1;
 
     char auxId[130];
+    int auxIdInt;
     char auxHoras[130];
     char auxSueldo[130];
     char auxNombre[130];
@@ -127,7 +161,29 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
         //employee_setId(aux,ll_len(pArrayListEmployee) + 1);
         //itoa( int valor, char * cadena_destino, int base )
         // itoa(ll_len(pArrayListEmployee) + 1,auxId);
-        itoa(ll_len(pArrayListEmployee) + 1,auxId,10);
+
+
+      itoa(ll_len(pArrayListEmployee) + k,auxId,10);
+
+
+      auxIdInt = atoi(auxId);
+
+      for(int i = 0; i<ll_len(pArrayListEmployee);i++)
+      {
+        aux = ll_get(pArrayListEmployee,i);
+
+        if(employee_getId(aux) == auxIdInt)
+        {
+
+         auxIdInt++;
+
+
+        }
+      }
+        aux=NULL;
+
+        itoa(auxIdInt,auxId,10);
+
 
         getOnlyLetters( auxNombre,"\nIngrese nombre: ","\nNombre invalido");
 
@@ -328,7 +384,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
         for(int i=0; i<ll_len(pArrayListEmployee); i++)
         {
             aux = ll_get(pArrayListEmployee,i);
-            printf("\n%16d%16s%16d%16.2f",employee_getId(aux)
+            printf("\n%16d%16s%16d%16d",employee_getId(aux)
                    ,employee_getNombre(aux)
                    ,employee_getHorasTrabajadas(aux)
                    ,employee_getSueldo(aux));

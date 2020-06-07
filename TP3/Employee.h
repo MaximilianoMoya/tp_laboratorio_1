@@ -27,7 +27,7 @@ int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas);
 int employee_getHorasTrabajadas(Employee* this);
 
 int employee_setSueldo(Employee* this,int sueldo);
-float employee_getSueldo(Employee* this);
+int employee_getSueldo(Employee* this);
 
 ///Ordenamientos
 int Employee_sortNombre(void* anterior, void* posterior);

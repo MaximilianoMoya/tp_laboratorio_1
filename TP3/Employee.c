@@ -144,10 +144,10 @@ int employee_setSueldo(Employee* this,int sueldo){
 
 
 }
-float employee_getSueldo(Employee* this){
+int employee_getSueldo(Employee* this){
 
 
-   float sueldo;
+    int sueldo;
     if(this!= NULL )
     {
         sueldo = this->sueldo;
