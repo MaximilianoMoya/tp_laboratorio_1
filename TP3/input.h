@@ -41,7 +41,7 @@ float getFloat(char mensaje[]);
  * \return char caracter obtenido
  *
  */
-char getChar(char mensaje[]);
+char getCharacter(char mensaje[]);
 
 
 
@@ -166,4 +166,7 @@ void getDNI(char cadena[],char mensaje[],char Emensaje[]);
 
 
 void getOnlyNumbers(char cadena[],char mensaje[],char Emensaje[]);
+
+
+void getStringToNumberWithDefinedSize(char cadena[], char mensaje[],int tam,char Emensaje[]);
 

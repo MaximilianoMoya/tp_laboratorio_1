@@ -189,9 +189,13 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
 
         getOnlyLetters( auxNombre,"\nIngrese nombre: ","\nNombre invalido");
 
-        getOnlyNumbers( auxHoras,"\nIngrese Horas trabajadas: ","\ncantidad de horas invalida");
 
-        getOnlyNumbers( auxSueldo,"\nIngrese sueldo: ","\nSueldo invalido");
+
+        getStringToNumberWithDefinedSize(auxSueldo,"\nIngrese Sueldo: ",6,"\nSueldo Invalido");
+        //getOnlyNumbers( auxHoras,"\nIngrese Horas trabajadas: ","\ncantidad de horas invalida");
+
+        getStringToNumberWithDefinedSize(auxHoras,"\nIngrese Horas: ",3,"\nCantidad de horas Invalida");
+        //getOnlyNumbers( auxSueldo,"\nIngrese sueldo: ","\nSueldo invalido");
 
 
 
@@ -275,7 +279,6 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
 
         getOnlyLetters(auxString,"\nIngrese nuevo nombre: ","\nNombre invalido");
         employee_setNombre(aux,auxString);
-
 
         break;
     case 2:
@@ -516,7 +519,7 @@ int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
 int controller_saveAsBinary(char* path, LinkedList* pArrayListEmployee)
 {
 
-  FILE* pArchivo;
+    FILE* pArchivo;
     Employee* aux;
 
     int rta = -1;

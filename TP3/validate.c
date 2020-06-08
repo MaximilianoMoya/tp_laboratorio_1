@@ -15,13 +15,13 @@ char verificarSN(char mensaje[])
 
     char respuesta;
 
-    respuesta = tolower(getChar(mensaje));
+    respuesta = tolower(getCharacter(mensaje));
 
     while(respuesta != 's' && respuesta != 'n')
     {
 
         printf("\nError, ingrese respuesta correcta.\n");
-        respuesta = tolower(getChar(mensaje));
+        respuesta = tolower(getCharacter(mensaje));
 
     }
 
@@ -36,13 +36,13 @@ char verificarMF(char mensaje[])
 
     char respuesta;
 
-    respuesta = tolower(getChar(mensaje));
+    respuesta = tolower(getCharacter(mensaje));
 
     while(respuesta != 'f' && respuesta != 'm')
     {
 
         printf("\nError, ingrese respuesta correcta 'm' para masculino 'f' para femenino.\n");
-        respuesta = tolower(getChar(mensaje));
+        respuesta = tolower(getCharacter(mensaje));
 
     }
 

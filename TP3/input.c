@@ -147,14 +147,14 @@ float getFloat(char mensaje[],char Emensaje[])
 
 
 
-char getChar(char mensaje[])
+char getCharacter(char mensaje[])
 {
 
 
     char aux;
 
     printf("%s",mensaje);
-    aux = getche();
+    aux = getchar();
 
     return aux;
 
@@ -358,6 +358,29 @@ getString(cadena,mensaje,Emensaje);
         printf(Emensaje);
         getString(cadena,mensaje,Emensaje);
     }
+
+
+
+
+
+}
+
+
+void getStringToNumberWithDefinedSize(char cadena[], char mensaje[],int tam,char Emensaje[]){
+
+
+
+
+    getString(cadena,mensaje,Emensaje);
+
+
+
+    while(isStringWithDefinedSize(cadena,tam) ==  -1 ||  onlyNumbers(cadena) == -1 )
+    {
+        printf(Emensaje);
+        getString(cadena,mensaje,Emensaje);
+    }
+
 
 
 
