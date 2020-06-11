@@ -122,4 +122,10 @@ int isFloat(char cadena[]);
 
 
 
+/** \brief Verifica si es masculino o femenino
+ *
+ * \param sexo char s o f
+ * \return int 0 si es flotante -1 si no
+ *
+ */
 int isMoF(char sexo);

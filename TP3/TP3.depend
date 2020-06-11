@@ -69,17 +69,17 @@
 
 1565993298 c:\users\user\desktop\backup\tp3\linkedlist.h
 
-1591528278 c:\users\user\desktop\backup\tp3\controller.h
+1591882040 c:\users\user\desktop\backup\tp3\controller.h
 
-1591534973 c:\users\user\desktop\backup\tp3\employee.h
+1591881315 c:\users\user\desktop\backup\tp3\employee.h
 	<string.h>
 	<stdlib.h>
 	"validate.h"
 	"input.h"
 
-1590920372 c:\users\user\desktop\backup\tp3\validate.h
+1591880485 c:\users\user\desktop\backup\tp3\validate.h
 
-1591602604 c:\users\user\desktop\backup\tp3\input.h
+1591880558 c:\users\user\desktop\backup\tp3\input.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -103,7 +103,7 @@
 	"Employee.h"
 	"parser.h"
 
-1591523647 c:\users\user\desktop\backup\tp3\parser.h
+1591882163 c:\users\user\desktop\backup\tp3\parser.h
 
 1591880041 source:c:\users\user\desktop\backup\tp3\parser.c
 	<stdio.h>

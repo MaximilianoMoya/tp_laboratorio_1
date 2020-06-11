@@ -165,8 +165,26 @@ void getArchivo(char cadena[],char mensaje[],char Emensaje[]);
 void getDNI(char cadena[],char mensaje[],char Emensaje[]);
 
 
+/** \brief Obtiene una cadena de solo numeros
+ *
+ * \param cadena[] char cadena a cargar
+ * \param mensaje[] char mensaje que pide la cadena
+ * \param Emensaje[] char mensaje de error
+ * \return void
+ *
+ */
 void getOnlyNumbers(char cadena[],char mensaje[],char Emensaje[]);
 
 
+
+
+/** \brief Obtiene una cadena de solo numeros con un rango definido
+ *
+ * \param cadena[] char cadena a cargar
+ * \param mensaje[] char mensaje que pide la cadena
+ * \param Emensaje[] char mensaje de error
+ * \return void
+ *
+ */
 void getStringToNumberWithDefinedSize(char cadena[], char mensaje[],int tam,char Emensaje[]);
 

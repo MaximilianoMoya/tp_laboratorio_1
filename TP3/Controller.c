@@ -149,7 +149,7 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
     aux = employee_new();
 
     char respuesta;
-    int rta;
+    int rta = -1;
 
 
     char auxId[130];
@@ -309,6 +309,7 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
     {
 
         ll_set(pArrayListEmployee,index,aux);
+        rta = 0;
         printf("\nSe modifico el dato con exito\n");
     }
     else
@@ -405,7 +406,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 
         }
 
-
+        rta = 0;
     }
 
     return rta;
