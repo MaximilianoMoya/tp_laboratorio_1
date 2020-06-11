@@ -63,17 +63,24 @@ int controller_seachToId(LinkedList* pArrayListEmployee)
  */
 int controller_loadFromText(char* path, LinkedList* pArrayListEmployee)
 {
+
+
     int rta = -1;
+
+
 
     FILE* pFile;
     pFile = fopen(path,"r");
 
     if(pFile == NULL)
     {
+
+
         rta = 0;
     }
     else
     {
+
 
         parser_EmployeeFromText(pFile,pArrayListEmployee);
 

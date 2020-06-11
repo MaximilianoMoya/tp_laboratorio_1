@@ -40,10 +40,12 @@ int main()
         switch(option)
         {
         case 1:
+
             controller_loadFromText("data.csv",listaEmpleados);
             break;
 
         case 2:
+
             controller_loadFromBinary("data.bin",listaEmpleados);
             break;
         case 3:
