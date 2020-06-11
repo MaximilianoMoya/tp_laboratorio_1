@@ -76,7 +76,7 @@ int controller_loadFromText(char* path, LinkedList* pArrayListEmployee)
     {
 
 
-        rta = 0;
+        rta = -1;
     }
     else
     {
@@ -85,7 +85,7 @@ int controller_loadFromText(char* path, LinkedList* pArrayListEmployee)
         parser_EmployeeFromText(pFile,pArrayListEmployee);
 
         fclose(pFile);
-        rta = 1;
+        rta = 0;
 
     }
 
@@ -116,14 +116,14 @@ int controller_loadFromBinary(char* path, LinkedList* pArrayListEmployee)
     {
 
         parser_EmployeeFromBinary(pFile,pArrayListEmployee);
-        rta = 1;
+        rta = 0;
 
         fclose(pFile);
     }
     else
     {
 
-        rta = 0;
+        rta = -1;
 
 
     }
@@ -228,13 +228,10 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
 
 
 
-            printf("\nOperacion exitosa\n");
+
 
         }
-        else
-        {
-            printf("\nOperacion cancelada\n");
-        }
+
 
     }
 
@@ -310,14 +307,9 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
 
         ll_set(pArrayListEmployee,index,aux);
         rta = 0;
-        printf("\nSe modifico el dato con exito\n");
-    }
-    else
-    {
 
-
-        printf("\nSe aborto la modificacion de datos\n");
     }
+
 
 
 
@@ -351,15 +343,11 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
     if(respuesta == 's')
     {
         ll_remove(pArrayListEmployee,index);
-        printf("\nSe ha eliminado el empleado con exito");
+
         rta = 0;
     }
     else
-    {
 
-
-        printf("\nSe ha abortado el proceso de borrado");
-    }
 
 
 
@@ -438,18 +426,18 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
         case 1:
             printf("\nOrdenando por nombre... Aguarde un momento por favor.\n");
             ll_sort(pArrayListEmployee,Employee_sortNombre,1);
-            rta = 1;
+            rta = 0;
             break;
         case 2:
             printf("\nOrdenando por horas... Aguarde un momento por favor.\n");
             ll_sort(pArrayListEmployee,Employee_sortHoras,1);
-            rta = 1;
+            rta = 0;
             break;
         case 3:
             printf("\nOrdenando por sueldo... Aguarde un momento por favor.\n");
             ll_sort(pArrayListEmployee,Employee_sortSueldo,1);
 
-            rta = 1;
+            rta = 0;
             break;
 
         default:
@@ -457,7 +445,7 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
         }
     }
 
-    printf("\nSe ha ordenado la lista satisfactoriamente.\n");
+
 
 
 
@@ -502,8 +490,8 @@ int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
                     ,employee_getSueldo(aux));
         }
 
-        rta = 1;
-        printf("\n\nSe han guardado los cambios");
+        rta = 0;
+
         fclose(pArchivo);
     }
 
@@ -543,6 +531,7 @@ int controller_saveAsBinary(char* path, LinkedList* pArrayListEmployee)
             fwrite(aux, sizeof(Employee),1,pArchivo);
         }
         fclose(pArchivo);
+        rta =0;
     }
     return rta;
 

@@ -24,6 +24,8 @@ int main()
 {
     int option;
 
+    int verificar;
+
 
 
 
@@ -41,41 +43,52 @@ int main()
         {
         case 1:
 
-            controller_loadFromText("data.csv",listaEmpleados);
+            verificar =  controller_loadFromText("data.csv",listaEmpleados);
+            verificarRetorno(verificar,"Se cargo desde archivo de texto correctamente","Error en cargar archivo");
+
+
             break;
 
         case 2:
 
-            controller_loadFromBinary("data.bin",listaEmpleados);
+           verificar= controller_loadFromBinary("data.bin",listaEmpleados);
+           verificarRetorno(verificar,"Se cargo desde archivo binario correctamente","Error en cargar archivo");
             break;
         case 3:
-            controller_addEmployee(listaEmpleados);
+            verificar = controller_addEmployee(listaEmpleados);
+            verificarRetorno(verificar,"Se aniadio empleado correctamente","No se a aniadio empleado");
             break;
 
         case 4:
-            controller_editEmployee(listaEmpleados);
+           verificar = controller_editEmployee(listaEmpleados);
+           verificarRetorno(verificar,"Se edito correctamente el empleado","no se edito el empleado");
             break;
 
 
         case 5:
-            controller_removeEmployee(listaEmpleados);
+           verificar =  controller_removeEmployee(listaEmpleados);
+              verificarRetorno(verificar,"Se Borro el empleado","no se borro el empleado");
             break;
 
         case 6:
-            controller_ListEmployee(listaEmpleados);
+           verificar = controller_ListEmployee(listaEmpleados);
+              verificarRetorno(verificar,"Se listo correctamente","no se listo correctamente");
             break;
 
 
         case 7:
-            controller_sortEmployee(listaEmpleados);
+           verificar= controller_sortEmployee(listaEmpleados);
+            verificarRetorno(verificar,"Se ordeno correctamente ","no se pudo ordenar");
             break;
 
         case 8:
-            controller_saveAsText("data.csv",listaEmpleados);
+            verificar = controller_saveAsText("data.csv",listaEmpleados);
+             verificarRetorno(verificar,"Se guardo correctamente","Error en guardar");
             break;
 
         case 9:
-            controller_saveAsBinary("data.bin",listaEmpleados);
+          verificar=  controller_saveAsBinary("data.bin",listaEmpleados);
+           verificarRetorno(verificar,"Se guardo correctamente","Error en guardar");
             break;
 
         case 10:

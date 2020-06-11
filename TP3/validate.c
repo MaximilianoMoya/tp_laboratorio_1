@@ -590,3 +590,26 @@ int isFloat(char cadena[])
     return flag;
 
 }
+
+
+void verificarRetorno(int resultado, char mensaje[],char eMensaje[]){
+
+if(resultado == 0)
+{
+
+    printf("\n%s\n",mensaje);
+}else{
+
+
+  printf("\n%s\n",eMensaje);
+
+}
+
+
+
+
+
+
+
+
+}

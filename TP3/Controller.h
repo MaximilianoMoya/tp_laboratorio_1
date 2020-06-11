@@ -43,7 +43,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee);
 /** \brief Ordena empleado segun critero
  *
  * \param pArrayListEmployee LinkedList* lista a ordenar
- * \return int 1 si lista con exito, -1 si no.
+ * \return int 0 si lista con exito, -1 si no.
  *
  */
 int controller_sortEmployee(LinkedList* pArrayListEmployee);
@@ -51,7 +51,7 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee);
  *
  * \param path char* direccion nombre del archivo
  * \param pArrayListEmployee LinkedList* lista a guardar
- * \return int 1 si lista con exito, -1 si no.
+ * \return int 0 si lista con exito, -1 si no.
  *
  */
 int controller_saveAsText(char* path , LinkedList* pArrayListEmployee);
@@ -60,7 +60,7 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee);
  *
  * \param path char* direccion nombre del archivo
  * \param pArrayListEmployee LinkedList* lista a guardar
- * \return int 1 si lista con exito, -1 si no.
+ * \return int 0 si lista con exito, -1 si no.
  *
  */
 int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee);

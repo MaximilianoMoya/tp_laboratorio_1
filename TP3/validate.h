@@ -129,3 +129,6 @@ int isFloat(char cadena[]);
  *
  */
 int isMoF(char sexo);
+
+
+void verificarRetorno(int resultado, char mensaje[],char eMensaje[]);
