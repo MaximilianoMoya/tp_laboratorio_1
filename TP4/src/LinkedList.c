@@ -64,19 +64,19 @@ static Node* getNode(LinkedList *this, int nodeIndex)
         {
 
             pNode = this->pFirstNode;
-            for (int i = 1; i < ll_len(this); i++)
-            {
-                if (i == nodeIndex )
-                {
-                    pNode = pNode->pNextNode;
 
-                }
+
+            for (int i = 0; i < nodeIndex; i++)
+            {
+                pNode = pNode->pNextNode;
             }
 
+
+
+
         }
-
     }
-
+    printf("\nEN GET**%p**\n", pNode);
     return pNode;
 }
 
@@ -108,29 +108,28 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
     int returnAux = -1;
     Node* prev = NULL;
     Node* next = NULL;
-    Node* nuevoNodo = (Node*) malloc(sizeof(Node));
 
-    if (nuevoNodo != NULL && this != NULL && nodeIndex >= 0 && nodeIndex <= ll_len(this))
+    Node* nuevoNodo = (Node*) malloc(sizeof(Node));
+    nuevoNodo->pElement = pElement;
+
+    if ( this != NULL && nodeIndex >= 0 && nodeIndex <= ll_len(this))
     {
 
-        nuevoNodo->pElement = pElement;
-        if (nodeIndex >= 0 && nodeIndex <= ll_len(this))
-        {
 
-            if (nodeIndex == 0)
+            if(nuevoNodo != NULL)
             {
-                //Altern -> enganhcar ll vacio al nodo. enganchar que apunta
-                nuevoNodo->pNextNode = this->pFirstNode; // lo dejo en NULL
-                this->pFirstNode = nuevoNodo;
-
-            }else{
-
-
+            this->pFirstNode = nuevoNodo;
+            //printf("\nEs diferente de null\n");
 
             }
 
 
-        }
+
+
+
+
+
+
         this->size++;
         returnAux = 0;
     }
