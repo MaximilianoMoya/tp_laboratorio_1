@@ -76,7 +76,7 @@ static Node* getNode(LinkedList *this, int nodeIndex)
 
         }
     }
-    printf("\nEN GET**%p**\n", pNode);
+
     return pNode;
 }
 
@@ -107,31 +107,60 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
 {
     int returnAux = -1;
     Node* prev = NULL;
-    Node* next = NULL;
-
-    Node* nuevoNodo = (Node*) malloc(sizeof(Node));
-    nuevoNodo->pElement = pElement;
+    //  Node* next = (Node*) malloc(sizeof(Node));
+    Node* nuevoNodo = NULL;
 
     if ( this != NULL && nodeIndex >= 0 && nodeIndex <= ll_len(this))
     {
 
+        Node* nuevoNodo = (Node*) malloc(sizeof(Node)); ///Creo con memoria dinamica
 
-            if(nuevoNodo != NULL)
+        if(nuevoNodo != NULL)
+        {
+            nuevoNodo->pElement = pElement; ///Le paso el elemento
+///(1
+            if(nodeIndex == 0) ///Si es el primer elemento
             {
-            this->pFirstNode = nuevoNodo;
-            //printf("\nEs diferente de null\n");
+                this->pFirstNode = nuevoNodo; /// paso a linkedlist la direccion de memoria del primer elemento
+
+            }
+///(2
+            else ///Si es el otro voy a necesitar crear el previo para ponerle
+            {
+
+                prev = getNode(this,nodeIndex-1); /// Si no me pide el nodo numero 0 entonces voy a necesitar saber cual es el nodo anterior al cual le tendre que pasar la direccion de memoria del siguiente
+
+
+
+            }
+///(1
+            if(prev == NULL)
+            {
+                nuevoNodo->pNextNode = NULL; /// Si es el indexNodo es igual a 0 entonces el sigu
+                //printf("\n*** nuevo nodo %p ***\n",nuevoNodo);
+
+            }
+            ///(2
+            else
+            {
+
+                // nuevoNodo->pNextNode = prev->pNextNode;
+                prev->pNextNode = nuevoNodo; /// Si se creo el prev entonces le pasamos a este la posicion del nodo nuevo a su nextNode debido a que para linkedlist tenemos que ligar la memoria del anterior con la memoria del siguiente para ligarlo
+
 
             }
 
-
-
-
-
-
-
-
         this->size++;
         returnAux = 0;
+
+        }
+
+
+
+
+
+
+
     }
     return returnAux;
 }
@@ -162,8 +191,20 @@ int test_addNode(LinkedList* this, int nodeIndex,void* pElement)
 int ll_add(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
-    int indice = 0;
-    Node* actual;
+    //int indice = 0;
+   // Node* actual;
+
+
+    if(this != NULL && pElement != NULL)
+    {
+      //  getNode(this,ll_len(this));
+        addNode(this,  ll_len(this),pElement);
+
+
+
+
+        returnAux = 0;
+    }
 
 
 
