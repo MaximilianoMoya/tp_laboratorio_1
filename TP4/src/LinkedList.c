@@ -107,51 +107,60 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
 {
     int returnAux = -1;
     Node* prev = NULL;
-    //  Node* next = (Node*) malloc(sizeof(Node));
+    Node* next= NULL;
     Node* nuevoNodo = NULL;
 
-    if ( this != NULL && nodeIndex >= 0 && nodeIndex <= ll_len(this))
+    if ( this != NULL && nodeIndex >= 0 && nodeIndex <= ll_len(this) )
     {
 
-        Node* nuevoNodo = (Node*) malloc(sizeof(Node)); ///Creo con memoria dinamica
+        nuevoNodo = (Node*) malloc(sizeof(Node)); ///Creo con memoria dinamica
 
         if(nuevoNodo != NULL)
         {
             nuevoNodo->pElement = pElement; ///Le paso el elemento
 ///(1
-            if(nodeIndex == 0) ///Si es el primer elemento
+            if(nodeIndex == 0 ) ///Si es el primer elemento /// 2 cosas ! => linkedlist
             {
                 this->pFirstNode = nuevoNodo; /// paso a linkedlist la direccion de memoria del primer elemento
+                if(ll_len(this) != 0)  ///En el caso de que la lista ya tenga elementos se le debe pasar a este la direccion del siguiente y en caso contraro seria NULL
+                {
+                    next = getNode(this,nodeIndex+1);
+                    nuevoNodo->pNextNode = next;
+                }
+                else
+                {
 
+                    nuevoNodo->pNextNode = NULL;
+                }
             }
-///(2
-            else ///Si es el otro voy a necesitar crear el previo para ponerle
-            {
-
-                prev = getNode(this,nodeIndex-1); /// Si no me pide el nodo numero 0 entonces voy a necesitar saber cual es el nodo anterior al cual le tendre que pasar la direccion de memoria del siguiente
-
-
-
-            }
-///(1
-            if(prev == NULL)
-            {
-                nuevoNodo->pNextNode = NULL; /// Si es el indexNodo es igual a 0 entonces el sigu
-                //printf("\n*** nuevo nodo %p ***\n",nuevoNodo);
-
-            }
-            ///(2
             else
             {
 
-                // nuevoNodo->pNextNode = prev->pNextNode;
+                prev = getNode(this,nodeIndex-1); /// Si no me pide el nodo numero 0 entonces voy a necesitar saber cual es el nodo anterior al cual le tendre que pasar la direccion de memoria del siguiente
                 prev->pNextNode = nuevoNodo; /// Si se creo el prev entonces le pasamos a este la posicion del nodo nuevo a su nextNode debido a que para linkedlist tenemos que ligar la memoria del anterior con la memoria del siguiente para ligarlo
+                next = getNode(this,nodeIndex+1);
+                nuevoNodo->pNextNode = next;
+
+                if(nodeIndex == ll_len(this))
+                {
+                nuevoNodo->pNextNode = NULL;
+                }
+
 
 
             }
+///(2
 
-        this->size++;
-        returnAux = 0;
+
+
+
+
+
+
+
+
+            this->size++;
+            returnAux = 0;
 
         }
 
@@ -192,17 +201,16 @@ int ll_add(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
     //int indice = 0;
-   // Node* actual;
+    //Node* actual;
+////VERIFICAR A PARTIR DE ACA.
+   // printf("\nELEMENTO: %p\n",pElement);
 
 
-    if(this != NULL && pElement != NULL)
+    if(this != NULL )
     {
-      //  getNode(this,ll_len(this));
+     //   printf("\nsize anterior al add: %d\n",ll_len(this));
         addNode(this,  ll_len(this),pElement);
-
-
-
-
+      //  printf("\nsize posterior al add: %d\n",ll_len(this));
         returnAux = 0;
     }
 
