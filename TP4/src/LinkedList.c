@@ -143,7 +143,7 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
 
                 if(nodeIndex == ll_len(this))
                 {
-                nuevoNodo->pNextNode = NULL;
+                    nuevoNodo->pNextNode = NULL;
                 }
 
 
@@ -203,14 +203,14 @@ int ll_add(LinkedList* this, void* pElement)
     //int indice = 0;
     //Node* actual;
 ////VERIFICAR A PARTIR DE ACA.
-   // printf("\nELEMENTO: %p\n",pElement);
+    // printf("\nELEMENTO: %p\n",pElement);
 
 
     if(this != NULL )
     {
-     //   printf("\nsize anterior al add: %d\n",ll_len(this));
+        //   printf("\nsize anterior al add: %d\n",ll_len(this));
         addNode(this,  ll_len(this),pElement);
-      //  printf("\nsize posterior al add: %d\n",ll_len(this));
+        //  printf("\nsize posterior al add: %d\n",ll_len(this));
         returnAux = 0;
     }
 
@@ -218,11 +218,11 @@ int ll_add(LinkedList* this, void* pElement)
 
     return returnAux;
 }
-//  ******* OJO CORREGIR *******************
-/** \brief Permite realizar el test de la funcion addNode la cual es privada
+
+/** \brief Retorna un puntero al elemento que se encuentra en el índice especificado.
  *
  * \param this LinkedList* Puntero a la lista
- * \param nodeIndex int Ubicacion del elemento a obtener
+ * \param index int Ubicacion del elemento a obtener
  * \return void* Retorna    (NULL) Error: si el puntero a la lista es NULL o (si el indice es menor a 0 o mayor al len de la lista)
                             (pElement) Si funciono correctamente
  *
@@ -230,6 +230,24 @@ int ll_add(LinkedList* this, void* pElement)
 void* ll_get(LinkedList* this, int index)
 {
     void* returnAux = NULL;
+    Node* auxNode;
+
+
+
+
+    if(this != NULL)
+    {
+
+        auxNode= getNode(this,index);
+        if(auxNode != NULL)
+        {
+        returnAux = auxNode->pElement;
+        }
+
+
+
+    }
+
 
 
     return returnAux;
