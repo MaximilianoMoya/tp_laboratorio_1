@@ -241,7 +241,7 @@ void* ll_get(LinkedList* this, int index)
         auxNode= getNode(this,index);
         if(auxNode != NULL)
         {
-        returnAux = auxNode->pElement;
+            returnAux = auxNode->pElement;
         }
 
 
@@ -270,6 +270,23 @@ int ll_set(LinkedList* this, int index,void* pElement)
     int cantidad;
 
 
+    if ( this != NULL && index >= 0 && index < ll_len(this) )
+    {
+
+        actual = getNode(this,index);
+
+        if(actual != NULL)
+        {
+            actual->pElement = pElement;
+            returnAux = 0;
+
+        }
+
+
+
+    }
+
+
     return returnAux;
 }
 
@@ -287,7 +304,39 @@ int ll_remove(LinkedList* this,int index)
     int returnAux = -1;
     Node* actual;
     Node* next;
+    Node* prev;
     int indice = 0;
+
+
+    if ( this != NULL && index >= 0 && index < ll_len(this) )
+    {
+
+        actual = getNode(this,index);
+
+
+
+
+        if(actual != NULL)
+        {
+            next = getNode(this,index+1);
+            if(next != NULL)
+            {
+                prev = getNode(this,index-1);
+                prev->pNextNode = next;
+                free(actual);
+
+            }
+
+
+
+
+
+        }
+
+
+        this->size--;
+        returnAux = 0;
+    }
 
 
     return returnAux;
