@@ -356,6 +356,25 @@ int ll_clear(LinkedList* this)
     Node* nodo;
     int i;
 
+    if(this != NULL)
+    {
+
+        for(i=0; i<ll_len(this); i++)
+        {
+            nodo = getNode(this,i);
+            if(nodo != NULL)
+            {
+            nodo->pElement = NULL;
+
+            }
+
+        }
+        this->size = 0;
+        returnAux = 0;
+
+    }
+
+
 
     return returnAux;
 }
