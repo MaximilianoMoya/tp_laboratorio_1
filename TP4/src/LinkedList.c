@@ -364,7 +364,7 @@ int ll_clear(LinkedList* this)
             nodo = getNode(this,i);
             if(nodo != NULL)
             {
-            nodo->pElement = NULL;
+                nodo->pElement = NULL;
 
             }
 
@@ -414,6 +414,27 @@ int ll_indexOf(LinkedList* this, void* pElement)
     int returnAux = -1;
     int i;
     Node* nodo;
+
+    if(this != NULL)
+    {
+
+        for(i = 0; i<ll_len(this); i++)
+        {
+
+        nodo = getNode(this,i);
+
+        if(nodo->pElement == pElement)
+        {
+
+            returnAux = i;
+            break;
+        }
+
+
+
+        }
+    }
+
 
 
 
