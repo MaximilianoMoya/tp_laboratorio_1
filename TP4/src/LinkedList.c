@@ -235,7 +235,7 @@ void* ll_get(LinkedList* this, int index)
 
 
 
-    if(this != NULL)
+    if(this != NULL && index <= ll_len(this) && index >= 0)
     {
 
         auxNode= getNode(this,index);
@@ -455,7 +455,7 @@ int ll_isEmpty(LinkedList* this)
 
     if(this != NULL)
     {
-        if( ll_len(this))
+        if( ll_len(this) > 0 )
         {
             returnAux = 0;
         }
@@ -480,7 +480,7 @@ int ll_push(LinkedList* this, int index, void* pElement)
 {
     int returnAux = -1;
 
-
+    /// AHORA
 
     return returnAux;
 }
