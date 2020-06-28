@@ -601,8 +601,9 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
 {
     int returnAux = -1;
     int i;
-    Node* nodo = NULL;
-    Node* nodo2 = NULL;
+    void* Element1 = NULL;
+    void* Element2 = NULL;
+
 
     if(this != NULL && this2 != NULL)
     {
@@ -610,11 +611,11 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
 
         for(int i =0; i<ll_len(this); i++)
         {
-            nodo = getNode(this2,i);
-            nodo2 = getNode(this,i);
+            Element1 = ll_get(this,i);
+            Element2 = ll_get(this2,i);
 
 
-            if(nodo->pElement != nodo2->pElement)
+            if(Element1 != Element2)
             {
                 returnAux = 0;
             }
@@ -627,6 +628,7 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
 
     return returnAux;
 }
+
 
 /** \brief Crea y retorna una nueva lista con los elementos indicados
  *
@@ -722,7 +724,58 @@ LinkedList* ll_clone(LinkedList* this)
 int ll_sort(LinkedList* this, int (*pFunc)(void*,void*), int order)
 {
     int returnAux =-1;
-    void* pAux;
+    void* pAux = NULL;
+    void* elementoI = NULL;
+    void* elementoJ = NULL;
+
+
+
+
+    if(this != NULL && pFunc != NULL && (order == 0 || order == 1))
+    {
+
+
+        for(int i = 0; i< ll_len(this) - 1; i++)
+        {
+            for(int j = i+1; j<ll_len(this); j++)
+            {
+            elementoI = ll_get(this,i);
+            elementoJ = ll_get(this,j);
+
+            switch(order)
+            {
+
+          case 0:
+
+            if(pFunc(elementoI,elementoJ)<0)
+            {
+                pAux = elementoI;
+                ll_set(this,i,elementoJ);
+                ll_set(this,j,pAux);
+
+            }
+            break;
+
+             case 1:
+
+            if(pFunc(elementoI,elementoJ)>0)
+            {
+                pAux = elementoI;
+                ll_set(this,i,elementoJ);
+                ll_set(this,j,pAux);
+            }
+            break;
+
+            }
+
+
+
+            }
+        }
+
+         returnAux = 0;
+    }
+
 
 
 
