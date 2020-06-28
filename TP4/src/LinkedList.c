@@ -231,8 +231,8 @@ void* ll_get(LinkedList* this, int index)
 
 
 
-    //OJO CAMBIO INDEX <= LL_LEN(THIS)
-    if(this != NULL && index < ll_len(this) && index >= 0)
+
+    if(this != NULL && index <= ll_len(this) && index >= 0)
     {
 
         auxNode= getNode(this,index);
@@ -601,23 +601,23 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
 {
     int returnAux = -1;
     int i;
-    Node* nodo;
-    Node* nodo2;
+    Node* nodo = NULL;
+    Node* nodo2 = NULL;
 
     if(this != NULL && this2 != NULL)
     {
         returnAux = 1;
 
-        for(int i =0; i<ll_len(this);i++)
+        for(int i =0; i<ll_len(this); i++)
         {
-          nodo = getNode(this2,i);
-          nodo2 = getNode(this,i);
+            nodo = getNode(this2,i);
+            nodo2 = getNode(this,i);
 
 
-          if(nodo->pElement != nodo2->pElement)
-          {
-              returnAux = 0;
-          }
+            if(nodo->pElement != nodo2->pElement)
+            {
+                returnAux = 0;
+            }
 
 
         }
@@ -645,6 +645,31 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
     void* pElement;
 
 
+    if(this != NULL && from >=0 && to> from && to<= ll_len(this))
+    {
+
+        cloneArray = ll_newLinkedList();
+
+        if(cloneArray != NULL)
+        {
+
+            for(i = from; i<to; i++)
+            {
+                pElement = ll_get(this,i);
+
+
+                if(pElement != NULL)
+                {
+                    ll_add(cloneArray,pElement);
+                }
+
+            }
+        }
+
+
+    }
+
+
     return cloneArray;
 }
 
@@ -659,6 +684,28 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
 LinkedList* ll_clone(LinkedList* this)
 {
     LinkedList* cloneArray = NULL;
+    void* pElement = NULL;
+
+    if(this != NULL)
+    {
+        cloneArray = ll_newLinkedList();
+
+        if(cloneArray != NULL)
+        {
+            for(int i= 0; i<ll_len(this); i++)
+            {
+                pElement = ll_get(this,i);
+
+                if(pElement != NULL)
+                {
+                    ll_add(cloneArray,pElement);
+                }
+
+
+            }
+        }
+    }
+
 
 
     return cloneArray;
