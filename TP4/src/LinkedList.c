@@ -602,6 +602,27 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
     int returnAux = -1;
     int i;
     Node* nodo;
+    Node* nodo2;
+
+    if(this != NULL && this2 != NULL)
+    {
+        returnAux = 1;
+
+        for(int i =0; i<ll_len(this);i++)
+        {
+          nodo = getNode(this2,i);
+          nodo2 = getNode(this,i);
+
+
+          if(nodo->pElement != nodo2->pElement)
+          {
+              returnAux = 0;
+          }
+
+
+        }
+
+    }
 
 
     return returnAux;
