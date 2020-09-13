@@ -264,7 +264,7 @@ int ll_set(LinkedList* this, int index,void* pElement)
 {
     int returnAux = -1;
     Node* actual;
-    int cantidad;
+
 
 
     if ( this != NULL && index >= 0 && index < ll_len(this) )
@@ -302,7 +302,7 @@ int ll_remove(LinkedList* this,int index)
     Node* actual;
     Node* next;
     Node* prev;
-    int indice = 0;
+
 
 
     if ( this != NULL && index >= 0 && index < ll_len(this) )
@@ -600,7 +600,7 @@ int ll_contains(LinkedList* this, void* pElement)
 int ll_containsAll(LinkedList* this,LinkedList* this2)
 {
     int returnAux = -1;
-    int i;
+
     void* Element1 = NULL;
     void* Element2 = NULL;
 
