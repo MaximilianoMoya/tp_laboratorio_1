@@ -111,7 +111,7 @@ namespace FormCalculadora
 
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
-            if(this.lblResultado.Text != null )
+            if(this.lblResultado.Text != null  && this.lblResultado.Text != "Valor invalido")
             {
 
                 Numero numero = new Numero();
@@ -123,7 +123,7 @@ namespace FormCalculadora
 
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
-            if (this.lblResultado.Text != null)
+            if (this.lblResultado.Text != null && this.lblResultado.Text != "Valor invalido")
             {
 
                 Numero numero = new Numero();
